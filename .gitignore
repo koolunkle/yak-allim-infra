@@ -1,0 +1,12 @@
+# Environment files
+.env
+.env.local
+
+# Runtime data
+*.log
+n8n_data/
+jenkins_home/
+
+# OS specific files
+.DS_Store
+Thumbs.db
