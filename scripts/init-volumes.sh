@@ -18,4 +18,11 @@ else
     echo "Docker volume 'jenkins_home' already exists."
 fi
 
+# Ensure initial service-url.inc file exists in nginx/conf.d
+if [ ! -f "nginx/conf.d/service-url.inc" ]; then
+    echo "Creating default nginx/conf.d/service-url.inc..."
+    mkdir -p nginx/conf.d
+    echo 'set $service_url http://yak-allim-backend-blue:8081;' > nginx/conf.d/service-url.inc
+fi
+
 echo "=== Setup Completed Successfully ==="
