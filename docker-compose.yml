@@ -36,9 +36,12 @@ services:
     networks:
       - app-network
 
-  # 통합 CI/CD 빌드 및 배포 제어기 (Jenkins Controller)
+  # 통합 CI/CD 빌드 및 배포 제어기 (Jenkins Controller with Docker CLI)
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: .
+      dockerfile: jenkins.Dockerfile
+    image: yak-allim-jenkins-custom:lts
     container_name: yak-allim-jenkins
     user: root
     restart: always
